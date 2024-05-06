@@ -42,7 +42,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
              
             vector<int> v = {nums[i], nums[leftBorder], nums[rightBorder]};
             f[v]++;
-            if (f[v]==1) res.push_back(v);
+            if (f[v]==1) res.insert(res.end(), v);
             leftBorder ++;
             rightBorder --;
         };
