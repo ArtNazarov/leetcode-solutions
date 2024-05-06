@@ -8,12 +8,15 @@ public:
 
         double y = x;
         double eps = 1e-6;
-        while (fabs(y * y - x) > eps) {
-            double t = y;
-            y*=y;
+        double prev_y = y;
+        double y2 = y * y;
+        while (fabs(y2 - x) > eps) {
+            y = y2;
             y+=x;
             y/=2;
-            y/=t;
+            y/=prev_y;
+            prev_y = y;
+            y2 = y * y;
         }
         return (int)y;
     }
