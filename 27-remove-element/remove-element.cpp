@@ -4,21 +4,17 @@ class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
       // get all numbers not equals val
-      list<int> notEquals;
+      vector<int> notEquals;
        std::copy_if (
                 nums.begin(), 
                 nums.end(), 
-                std::front_inserter(notEquals), 
-                [=](int i){return i!=val;} );  
+                std::back_inserter(notEquals), 
+                [ = ](int i){return i!=val;} );  
        
       int result = notEquals.size(); 
       // changing first numbers to notEquals
-      auto p = notEquals.begin();
-      int i = 0;
-      while (p!=notEquals.end()){
-        nums[i] = *p;
-        p++;
-        i++;
+      for (int i=0;i<result;i++){
+        nums[i] = notEquals[i];
       };
       return result;
     }
