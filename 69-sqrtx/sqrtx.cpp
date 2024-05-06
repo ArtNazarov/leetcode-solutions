@@ -7,7 +7,7 @@ public:
         }
 
         double y = x;
-        double eps = 1e-6;
+        double eps = 1e-3;
         double prev_y = y;
         double y2 = y * y;
         while (fabs(y2 - x) > eps) {
