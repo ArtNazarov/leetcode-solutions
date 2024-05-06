@@ -31,10 +31,8 @@ public:
         d++;
     };
     
-    int m = 1;
-    for (int q=1;q<cnt;q++){
-        m *= 10;
-    }
+    int m = pow(10, cnt-1);
+   
     
     int res = 0;
     for (int d=0;d<cnt;d++){
