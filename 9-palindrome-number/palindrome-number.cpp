@@ -24,10 +24,12 @@ public:
             //cout << d1 << " " << d2 << endl;
             if (d1 != d2) return false;
             a  -= d1 * mx;
-            mx /= 10;
-            b /= 10;
+            mx = mx >> 1;
+            mx /= 5;
+            b = b >> 1;
+            b /= 5;
             cnt++;
-        } while (cnt<=max_exp);
+        } while (cnt<=max_exp/2);
         return true;
     }
 };
