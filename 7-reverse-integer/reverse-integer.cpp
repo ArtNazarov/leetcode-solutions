@@ -15,10 +15,8 @@ public:
             
     const int MAX_DIGITS = 10;
     vector<int> f(MAX_DIGITS);
-    float max = 1.0;
-    for (int d=0;d<MAX_DIGITS;d++){
-        max *= 10;
-    };
+    float max = pow(10, MAX_DIGITS);
+     
     
     
         
