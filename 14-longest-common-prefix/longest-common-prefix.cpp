@@ -4,7 +4,7 @@ using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        map<int, unordered_set<char>> m;
+        map<int, set<char>> m;
         int minSize = strs[0].size();
         int i = 0;
         for (const auto& s  : strs){
