@@ -1,16 +1,15 @@
-#include <stack>
+#include <deque> 
 class Solution {
 public:
     bool isValid(string s) {
-        char onTop = ' '; 
-        stack<char> st;
+        deque<char> st;
         bool errTop = false;
         for (const auto& ch : s){
             switch(ch) {
                 case '(':
                 case '{':
                 case '[':
-                    st.push(ch);
+                    st.push_front(ch);
                     break;
                 case ']':
                 case '}':
@@ -20,15 +19,15 @@ public:
                         break;
                     } else
                     {
-                       onTop = st.top();
+                        char onTop = st.front();
                         if ( 
                             ( onTop == '(' && ch == ')' ) ||
                             ( onTop == '{' && ch == '}' ) ||
                             ( onTop == '[' && ch == ']' ) ) {
-                                st.pop();
+                                st.pop_front();
                             } else
                             {
-                                st.push(ch);
+                                st.push_front(ch);
                             };
                     };
             };
