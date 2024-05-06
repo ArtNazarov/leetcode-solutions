@@ -20,8 +20,9 @@ vector<vector<int>> threeSum(vector<int> &nums) {
   
   
    
-  set<int> sums;
+  
   for (size_t i = 0; i < nums.size()-2; i++) {
+    
     if (i>0 && nums[i]==nums[i-1]) continue;
     int leftBorder = i + 1;
     int rightBorder = nums.size()-1;
@@ -30,6 +31,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
         int sum = nums[i] + nums[leftBorder] + nums[rightBorder];
         
         if (sum < 0) {
+            
             leftBorder ++;
         }
         else if (sum > 0){
@@ -41,8 +43,9 @@ vector<vector<int>> threeSum(vector<int> &nums) {
             vector<int> v = {nums[i], nums[leftBorder], nums[rightBorder]};
             f[v]++;
             if (f[v]==1) res.push_back(v);
-            leftBorder ++;
-            rightBorder --;
+            leftBorder = upper_bound(nums.begin(), nums.end(), nums[leftBorder]) - nums.begin();
+            rightBorder = lower_bound(nums.begin(), nums.end(), nums[rightBorder]) - nums.begin();
+        
         };
     };
 
