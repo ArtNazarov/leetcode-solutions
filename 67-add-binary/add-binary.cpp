@@ -21,7 +21,7 @@ public:
             int s = x + y + shift;
             int dig = s % 2;
             shift = s >> 1;
-            z.insert(z.begin(), '0'+dig);
+            z.insert(z.end(), '0'+dig);
             i++;
             j++;
         };
@@ -32,7 +32,7 @@ public:
                 int s = y + shift;
                 int dig = s % 2;
                 shift = s >> 1;
-                z.insert(z.begin(), '0'+dig);
+                z.insert(z.end(), '0'+dig);
 
             j++;
             };
@@ -43,15 +43,15 @@ public:
                 int s = x + shift;
                 int dig = s % 2;
                 shift =  s >> 1;
-             z.insert(z.begin(), '0'+dig);
+             z.insert(z.end(), '0'+dig);
 
             i++;
             }
         };
         if (shift != 0) {
-             z.insert(z.begin(), '0'+shift);
+             z.insert(z.end(), '0'+shift);
         };
-         
+         ranges::reverse(z);
          
         return z;
     }
