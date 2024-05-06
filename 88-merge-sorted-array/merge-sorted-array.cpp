@@ -11,7 +11,7 @@ public:
         // counter frequency V of key K
         map<int,int> counter;
         // set of traversed values
-        unordered_set<int> uniq_values;
+        set<int> uniq_values;
 
         vector<int> nums1v;
         vector<int> nums2v;
@@ -23,7 +23,7 @@ public:
       
         // Count frequencies
 
-        for (auto e : nums1v) {
+        for (auto& e : nums1v) {
             if (uniq_values.count(e)) {
                 counter[e] ++;
             } else {
@@ -31,7 +31,7 @@ public:
                 uniq_values.insert(e);
             };
         };
-        for (auto e : nums2v) {
+        for (auto& e : nums2v) {
             if (uniq_values.count(e)) {
                 counter[e] ++;
             } else {
