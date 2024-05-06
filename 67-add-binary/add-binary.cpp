@@ -7,7 +7,7 @@ public:
     string addBinary(string a, string b) {
         vector<int> x;
         vector<int> y;
-
+        string z = "";
         for (int i = a.size() - 1; i != -1; i--) {
             int value = int(a[i]) - int('0');
             x.insert(x.end(), value);
@@ -27,7 +27,7 @@ public:
         while (i < x.size() && j < y.size()) {
             int dig = (x[i] + y[i] + shift) % 2;
             shift = (x[i] + y[i] + shift) / 2;
-            s.insert(s.end(), dig);
+            z.insert(z.begin(), '0'+dig);
             i++;
             j++;
         };
@@ -35,7 +35,7 @@ public:
             while (j < y.size()) {
             int dig = (y[j] + shift) % 2;
             shift = (y[j] + shift) / 2;
-            s.insert(s.end(), dig);
+             z.insert(z.begin(), '0'+dig);
 
             j++;
             };
@@ -43,21 +43,16 @@ public:
             while (i < x.size()) {
             int dig = (x[i] + shift) % 2;
             shift = (x[i] + shift) / 2;
-             s.insert(s.end(), dig);
+             z.insert(z.begin(), '0'+dig);
 
             i++;
             }
         };
         if (shift != 0) {
-            s.insert(s.end(), shift);
+             z.insert(z.begin(), '0'+shift);
         };
-        /* for (int i : s){
-            cout << i << " ";
-        }; */
-        string rez = "";
-        for (int k = s.size() - 1; k != -1; --k) {
-            rez.insert( rez.end(), char(int('0') + s[k]));
-        };
-        return rez;
+         
+         
+        return z;
     }
 };
