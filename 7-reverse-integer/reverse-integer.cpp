@@ -26,7 +26,8 @@ public:
     while (temp > 0){
         cnt += 1;
         f[d] = temp % 10;
-        temp/=10;
+        temp = temp >> 1;
+        temp/=5;
         d++;
     };
     
