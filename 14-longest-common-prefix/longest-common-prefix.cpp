@@ -5,22 +5,23 @@ class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
         const int MAX_L = 200;  
+        int sz = strs.size();
         string prefix = "";
-        for (int i=0;i<=MAX_L - 1;i++){
-            bool add_char = true;
-            if (i >= strs[0].size()) break;
+        int sz_1 = strs[0].size();
+        for (int i=0;i<=sz_1;i++){
+           
+            int add_char = 0;
+           
             char l = strs[0][i];
             for (const auto& s : strs){
-                if (i >= s.size()) {add_char = false; break;};
-                add_char = add_char && s[i] == l;
-                if (!add_char) {break;};
+                if (i >= s.size()) {add_char = 0; break;};
+                if (s[i] == l) add_char ++;
             }
-            if (add_char){
-                prefix += l;
-            } else
-            {
+            if (add_char == sz){
+                prefix.insert(prefix.end(), l);
+            } else {
                 break;
-            };
+            }
         };
         return prefix;
     }
