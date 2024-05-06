@@ -16,6 +16,7 @@ public:
         int a = x;
         int b = x;
         int cnt = 0;
+        int limit = max_exp >> 1;
         do {
             int d1 = a;
             if (mx != 0)  d1 = a / mx;
@@ -29,7 +30,7 @@ public:
             b = b >> 1;
             b /= 5;
             cnt++;
-        } while (cnt<=max_exp/2);
+        } while (cnt<=limit);
         return true;
     }
 };
