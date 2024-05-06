@@ -48,8 +48,12 @@ public:
             fill_n(back_inserter(res), repeats, key);
         };
         int sz = res.size();
+        int szN = nums1.size();
         for(auto i=0;i<sz;i++){
-            if (i<nums1.size()) nums1[i] = res[i]; else nums1.insert(nums1.end(), res[i]);
+            if (i<szN) nums1[i] = res[i]; else {
+                nums1.insert(nums1.end(), res[i]);
+                szN++;
+            };
         }
     };
 };
