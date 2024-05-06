@@ -5,12 +5,7 @@
 
 class Solution {
 public:
- 
-void clear_duplicates(vector<vector<int>> &v) {
-  std::sort(v.begin(), v.end());
-  auto last = std::unique(v.begin(), v.end());
-  v.erase(last, v.end());
-}
+  
 
 vector<vector<int>> threeSum(vector<int> &nums) {
   map<vector<int>, int> f;
@@ -23,10 +18,11 @@ vector<vector<int>> threeSum(vector<int> &nums) {
     return {{0,0,0}};
   };
    
+   int sz =  nums.size();
   set<int> sums;
-  for (size_t i = 0; i < nums.size()-2; i++) {
+  for (size_t i = 0; i < sz-2; i++) {
     int leftBorder = i + 1;
-    int rightBorder = nums.size()-1;
+    int rightBorder = sz-1;
     while (leftBorder < rightBorder){
         
         int sum = nums[i] + nums[leftBorder] + nums[rightBorder];
@@ -42,7 +38,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
              
             vector<int> v = {nums[i], nums[leftBorder], nums[rightBorder]};
             f[v]++;
-            if (f[v]==1) res.insert(res.end(), v);
+            if (f[v]==1) res.push_back(v);
             leftBorder ++;
             rightBorder --;
         };
