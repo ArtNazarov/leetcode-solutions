@@ -3,10 +3,17 @@ using namespace std;
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-      size_t pos = haystack.find(needle);
-      if (pos == string::npos) {
-          return -1;
-      };
-      return pos;
+      int ps = 0;
+      int sz1 = haystack.size();
+      int sz2 = needle.size();
+      if (sz2 > sz1) return -1;
+      
+      while (ps < sz1){
+           string s = haystack.substr(ps, sz2);
+           if (s == needle) return ps;
+           ps++;
+        };
+   
+      return -1;
     }
 };
