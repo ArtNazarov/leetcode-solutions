@@ -47,13 +47,8 @@ public:
             // cout << key << " repeats " << repeats << endl;
             fill_n(back_inserter(res), repeats, key);
         };
-        int sz = res.size();
-        int szN = nums1.size();
-        for(auto i=0;i<sz;i++){
-            if (i<szN) nums1[i] = res[i]; else {
-                nums1.insert(nums1.end(), res[i]);
-                szN++;
-            };
-        }
+        nums1.clear(); // remove values from nums1
+        // copy values from res to nums1
+        ranges::copy(res.begin(), res.end(), back_inserter(nums1));
     };
 };
