@@ -4,24 +4,22 @@ using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
+        map<int, unordered_set<char>> m;
         int minSize = strs[0].size();
+        int i = 0;
         for (const auto& s  : strs){
-                minSize = min((int)s.size(), minSize);        
+                minSize = min((int)s.size(), minSize);
+                int j = 0;
+                for(auto ch : s){
+                    m[j].insert(ch);
+                    j++;
+                };    
+                i++;   
         };
+         
         string prefix = "";
         for (int i=0;i<minSize;i++){
-            bool add_char = true;
-            char l = strs[0][i];
-            for (const auto& s : strs){
-                add_char = add_char && s[i] == l;
-                if (!add_char) {break;};
-            }
-            if (add_char){
-                prefix += l;
-            } else
-            {
-                break;
-            };
+           if (m[i].size()==1) prefix += *(m[i].begin()); else break;
         };
         return prefix;
     }
