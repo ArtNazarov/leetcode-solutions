@@ -23,7 +23,7 @@ public:
       
         // Count frequencies
 
-        for (auto& e : nums1v) {
+        for (auto e : nums1v) {
             if (uniq_values.count(e)) {
                 counter[e] ++;
             } else {
@@ -31,7 +31,7 @@ public:
                 uniq_values.insert(e);
             };
         };
-        for (auto& e : nums2v) {
+        for (auto e : nums2v) {
             if (uniq_values.count(e)) {
                 counter[e] ++;
             } else {
@@ -47,8 +47,9 @@ public:
             // cout << key << " repeats " << repeats << endl;
             fill_n(back_inserter(res), repeats, key);
         };
-        nums1.clear(); // remove values from nums1
-        // copy values from res to nums1
-        copy(res.begin(), res.end(), back_inserter(nums1));
+        int sz = res.size();
+        for(auto i=0;i<sz;i++){
+            if (i<nums1.size()) nums1[i] = res[i]; else nums1.insert(nums1.end(), res[i]);
+        }
     };
 };
