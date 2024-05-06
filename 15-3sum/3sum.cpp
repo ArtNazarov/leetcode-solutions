@@ -28,10 +28,11 @@ vector<vector<int>> threeSum(vector<int> &nums) {
         int sum = nums[i] + nums[leftBorder] + nums[rightBorder];
         
         if (sum < 0) {
-            leftBorder ++;
+            while (leftBorder < rightBorder && nums[i] + nums[leftBorder] + nums[rightBorder]<0) leftBorder ++;
         }
         else if (sum > 0){
-            rightBorder --;
+             while (leftBorder < rightBorder && nums[i] + nums[leftBorder] + nums[rightBorder]>0) rightBorder --;
+       
         }
         else {
            
