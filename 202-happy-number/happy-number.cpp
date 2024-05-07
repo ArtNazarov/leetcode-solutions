@@ -16,7 +16,7 @@ bool isHappy(int n) {
        digit = n % 10;
        // cout << "Digit " << digit << endl;
        // cout << "N is " << n << endl;
-       sum += digit * digit;
+       if (digit!=0) sum += digit * digit;
        // cout << sum << endl;
        n = n >> 1;
        n /= 5;
