@@ -17,23 +17,7 @@ public:
     };
     return list.first;
 }
-  void print_list(ListNode* lst){
-    ListNode* cur = lst;
-    while (cur != nullptr){
-        cout << cur->val << " ";
-        cur = cur->next;
-    };
-    cout << endl;
-  }
-  void clear_memory(ListNode* lst){
-    ListNode* cur = lst;
-    while (cur != nullptr){
-        ListNode* nxtElem = cur->next;
-        cur->next = nullptr;
-        delete cur;
-        cur = nxtElem;
-    };
-  }
+   
    void insertToLinkedList(std::pair<ListNode*, ListNode*>& list, int val){
                 // cout << "Insert " << val << endl;
                 ListNode* nxtNode = new ListNode(val);
@@ -58,7 +42,7 @@ public:
         vector<int> v;
         ListNode* current = lst;
         while (current != nullptr){
-            v.insert(v.end(), current->val);
+            v.push_back(current->val);
             current = current->next;
         }
         return v;
