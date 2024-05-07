@@ -2,7 +2,7 @@ class Solution {
 public:
 bool isHappy(int n) {
    bool flag = false; 
-   map<int, int> prev; // previous sums
+   unordered_map<int, int> prev; // previous sums
    while(!flag){
   
    if (1==n) {
