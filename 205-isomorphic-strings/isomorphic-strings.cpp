@@ -34,7 +34,7 @@ public:
             h.push_back(p.second[0]);
         };
         int sz = h.size();
-        sort(h.begin(), h.end());
+        ranges::sort(h.begin(), h.end());
         h.erase(unique(h.begin(), h.end()), h.end());
         return sz==h.size();
     }
