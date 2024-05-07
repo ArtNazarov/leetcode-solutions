@@ -8,7 +8,7 @@ public:
         int result = -1;
 
         for (const auto& e : nums){
-            f[e].insert(f[e].begin(),  e);
+            f[e].push_back(e);
             if (f[e].size()>level){
                 result = e;
                 break;
