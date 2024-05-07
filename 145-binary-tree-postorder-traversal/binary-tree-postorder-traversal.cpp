@@ -19,7 +19,7 @@ public:
             if (root == nullptr) return res;
         
             stack<TreeNode*> visited;
-            stack<TreeNode*> traversal;
+            queue<TreeNode*> traversal;
             visited.push(root);
 
             while (!visited.empty()) {
@@ -32,7 +32,7 @@ public:
             };
 
             while (!traversal.empty()) {
-                res.push_back( traversal.top()->val );
+                res.insert( res.begin(), traversal.front()->val );
                 traversal.pop();
             };
                 return res;
