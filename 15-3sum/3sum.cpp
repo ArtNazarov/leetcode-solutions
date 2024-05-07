@@ -38,7 +38,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
             vector<int> v = {nums[i], nums[leftBorder], nums[rightBorder]};
             //f[v]++;
             //if (f[v]==1) 
-            res.insert(res.end(), v);
+            res.push_back(v);
             leftBorder = upper_bound(nums.begin(), nums.end(), nums[leftBorder]) - nums.begin();
             rightBorder = prev(lower_bound(nums.begin(), nums.end(), nums[rightBorder])) - nums.begin();
         
