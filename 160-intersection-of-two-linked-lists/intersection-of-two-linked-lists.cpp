@@ -10,16 +10,15 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-      unordered_map<ListNode*, int> nodesInA;
+      vector<ListNode*> nodesInA;
            ListNode* p = headA;
            while (p!=nullptr){
-               nodesInA[p]++;
+               nodesInA.push_back(p);
                p = p->next;
           };
           p = headB;
           while (p !=nullptr){
-              nodesInA[p]++;
-              if (nodesInA[p]>1){
+              if (lower_bound(nodesInA.begin(), nodesInA.end(), p)!=nodesInA.end()){
                   return p;
             };
             p = p->next;
