@@ -3,11 +3,11 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        unordered_map<int, vector<int>> f;
+        map<int, vector<int>> f;
         int level = nums.size() / 2;
         int result = -1;
 
-        for (const auto& e : nums){
+        for ( auto e : nums){
             f[e].push_back(e);
             if (f[e].size()>level){
                 result = e;
