@@ -6,16 +6,17 @@ class Solution {
 public:
     bool isIsomorphic(string s, string t) {
          if (s.size()!=t.size()) return false; 
-        map<char, set<int>> m;
+        map<char,vector<char>> m;
         set<char> st;
- 
+
+         
 
         int index = 0;
         for (auto ch : s){
             auto v = m[ch];
             auto z = t[index];
             if (find(v.begin(),v.end(),z )==v.end())
-                m[ch].insert(z);
+                m[ch].push_back(z);
             index++;
         };
 
@@ -28,7 +29,7 @@ public:
 
         vector<char> h;
         for(auto p : m){
-            h.push_back(  *(p.second.begin()) );
+            h.push_back(p.second[0]);
         };
         int sz = h.size();
         sort(h.begin(), h.end());
