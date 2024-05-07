@@ -9,20 +9,18 @@ public:
 
 vector<vector<int>> threeSum(vector<int> &nums) {
  
-  
+  const int sz = nums.size();
   vector<vector<int>> res = {};
   ranges::sort(nums);
   
   
    
   
-  for (size_t i = 0; i < nums.size()-2; i++) {
+  for (size_t i = 0; i < sz-2; i++) {
     if (nums[i]>0) break;
-    if (i>0 && nums[i]==nums[i-1]) {
-        i = upper_bound(nums.begin(), nums.end(), nums[i]) - nums.begin();
-    };
+    if (i>0 && nums[i]==nums[i-1]) continue;
     int leftBorder = i + 1;
-    int rightBorder = nums.size()-1;
+    int rightBorder = sz - 1;
     while (leftBorder < rightBorder){
         
         int sum = nums[i] + nums[leftBorder] + nums[rightBorder];
@@ -37,9 +35,9 @@ vector<vector<int>> threeSum(vector<int> &nums) {
         else {
            
              
-            vector<int> v = {nums[i], nums[leftBorder], nums[rightBorder]};
+      
            
-            res.insert(res.end(), v);
+            res.insert(res.end(), {nums[i], nums[leftBorder], nums[rightBorder]});
             leftBorder = upper_bound(nums.begin(), nums.end(), nums[leftBorder]) - nums.begin();
             rightBorder = prev(lower_bound(nums.begin(), nums.end(), nums[rightBorder])) - nums.begin();
         
