@@ -15,7 +15,7 @@ public:
 TreeNode *invertTree(TreeNode *root) {
   if (root == nullptr)
     return nullptr;
-  TreeNode *nxtNode = new TreeNode(root->val, invertTree(root->right), invertTree(root->left));
-  return nxtNode;
+  return  new TreeNode(root->val, invertTree(root->right), invertTree(root->left));
+ 
 }
 };
