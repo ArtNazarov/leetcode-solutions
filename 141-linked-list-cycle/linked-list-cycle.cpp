@@ -11,14 +11,14 @@ using namespace std;
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-       unordered_set<ListNode*> st;
+       map<ListNode*, int> m;
        ListNode* p = head;
        if (p!=nullptr){
           if (p->next == p) return true;
        };
        while (p!=nullptr){
-            if (st.find(p)!=st.end() && !st.empty()) { return true; }
-            else { st.insert(p); };
+            if (m[p] == 1 && !m.empty()) { return true; }
+            else { m[p]++; };
             p = p->next;
        };
        return false;
