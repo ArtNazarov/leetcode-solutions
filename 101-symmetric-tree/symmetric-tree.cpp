@@ -25,9 +25,8 @@ bool isSymmetric(TreeNode *left, TreeNode *right) {
   if (left->val != right->val) {
     return false;
   };
-  if (!isSymmetric(left->left, right->right)) return false;
- 
-  return isSymmetric(left->right, right->left);
+   
+  return isSymmetric(left->left, right->right) &&  isSymmetric(left->right, right->left);
 }
 
 bool isSymmetric(TreeNode *root) {
