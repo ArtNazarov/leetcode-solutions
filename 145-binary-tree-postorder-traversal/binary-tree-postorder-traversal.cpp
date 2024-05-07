@@ -10,7 +10,7 @@
  * };
  */
  #include <vector>
- #include <deque>
+ #include <stack>
  using namespace std;
 class Solution {
 public:
@@ -18,22 +18,22 @@ public:
             vector<int> res;
             if (root == nullptr) return res;
         
-            deque<TreeNode*> visited;
-            deque<TreeNode*> traversal;
-            visited.push_front(root);
+            stack<TreeNode*> visited;
+            stack<TreeNode*> traversal;
+            visited.push(root);
 
             while (!visited.empty()) {
-                TreeNode* current = visited.front();
-                visited.pop_front();
-                traversal.push_front(current);
+                TreeNode* current = visited.top();
+                visited.pop();
+                traversal.push(current);
 
-                if (current->left) visited.push_front(current->left);
-                if (current->right) visited.push_front(current->right);
+                if (current->left) visited.push(current->left);
+                if (current->right) visited.push(current->right);
             };
 
             while (!traversal.empty()) {
-                res.push_back( traversal.front()->val );
-                traversal.pop_front();
+                res.insert( res.end(), traversal.top()->val );
+                traversal.pop();
             };
                 return res;
     }
