@@ -12,13 +12,13 @@ vector<vector<int>> threeSum(vector<int> &nums) {
   const int sz = nums.size();
   vector<vector<int>> res = {};
   ranges::sort(nums);
-  
-  
-   
-  
-  for (size_t i = 0; i < sz-2; i++) {
+  int i = 0;
+  while (i < sz - 2){
     if (nums[i]>0) break;
-    if (i>0 && nums[i]==nums[i-1]) continue;
+    if (i>0 && nums[i]==nums[i-1]) {
+        i = upper_bound(nums.begin(), nums.end(), nums[i]) - nums.begin();
+        continue;
+    };
     int leftBorder = i + 1;
     int rightBorder = sz - 1;
     while (leftBorder < rightBorder){
@@ -43,7 +43,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
         
         };
     };
-
+    i++;
   };
     
  
