@@ -11,7 +11,7 @@ using namespace std;
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-       map<ListNode*, int> m;
+       unordered_map<ListNode*, int> m;
        ListNode* p = head;
        if (p!=nullptr){
           if (p->next == p) return true;
