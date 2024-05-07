@@ -2,7 +2,7 @@ class Solution {
 public:
 bool isHappy(int n) {
    bool flag = false; 
-   unordered_map<int, int> prev; // previous sums
+   unordered_map<int, vector<int>> prev; // previous sums
    while(!flag){
   
    if (1==n) {
@@ -12,27 +12,23 @@ bool isHappy(int n) {
    int sum = 0;
   
    int digit;
-   vector<int> v;
    while (n != 0){
        digit = n % 10;
        // cout << "Digit " << digit << endl;
        // cout << "N is " << n << endl;
-       v.push_back(digit * digit);
+       sum += digit * digit;
        // cout << sum << endl;
        n = n >> 1;
        n /= 5;
       
    };
-   for(auto d : v){
-    sum += d;
-   }
    
       
    n = sum;
      
-     if (prev[n]==0){
+     if (prev[n].size()==0){
        // not found
-     prev[n] = 1;
+     prev[n].push_back(n);
      } else {
        // cycle!
        // cout << "Cycle with " << n << endl;
