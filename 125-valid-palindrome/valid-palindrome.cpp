@@ -6,7 +6,7 @@ public:
         s = "";
         for(auto ch : t){
             if (ch!=' ' && isalnum(ch)){
-                s.insert(s.end(), tolower(ch));
+                s += tolower(ch);
             };
         };
         //cout << s << endl;
