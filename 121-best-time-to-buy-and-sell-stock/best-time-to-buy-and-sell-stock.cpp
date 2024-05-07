@@ -7,10 +7,18 @@ public:
                 int profit = 0;
                 int minValue = prices[0];
                 int p = 0;
-                for (int i=1;i<n;i++){
+                int i = 0;
+                while (i<n){
                         p = prices[i] - minValue;
                         if(p > profit) profit = p ;
                         minValue = min(minValue, prices[i]);
+                        if (i + 1 < n && prices[i]!=prices[i+1]) {
+                            i++;
+                        } else if ( i + 1 < n) {
+                            while (i + 1 < n && prices[i]==prices[i+1]) i++;
+                        } else {
+                            i++;
+                        }
                 }
                 return profit;
     }
