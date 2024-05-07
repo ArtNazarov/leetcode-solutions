@@ -9,13 +9,15 @@ public:
         map<char,vector<char>> m;
         set<char> st;
 
-         
+        for (auto ch : s){
+            m[ch] = vector<char>();
+        };
 
         int index = 0;
         for (auto ch : s){
-            auto v = m[ch];
+           
             auto z = t[index];
-            if (find(v.begin(),v.end(),z )==v.end())
+            if (find(m[ch].begin(),m[ch].end(),z )==m[ch].end())
                 m[ch].push_back(z);
             index++;
         };
