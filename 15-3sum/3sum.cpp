@@ -22,7 +22,7 @@ vector<vector<int>> threeSum(vector<int> &nums) {
    
   
   for (size_t i = 0; i < nums.size()-2; i++) {
-    
+    if (nums[i]>0) break;
     if (i>0 && nums[i]==nums[i-1]) continue;
     int leftBorder = i + 1;
     int rightBorder = nums.size()-1;
