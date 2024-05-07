@@ -6,14 +6,9 @@
 class Solution {
 public:
  
-void clear_duplicates(vector<vector<int>> &v) {
-  std::sort(v.begin(), v.end());
-  auto last = std::unique(v.begin(), v.end());
-  v.erase(last, v.end());
-}
 
 vector<vector<int>> threeSum(vector<int> &nums) {
-  map<vector<int>, int> f;
+  // map<vector<int>, int> f;
   
   vector<vector<int>> res = {};
   std::sort(nums.begin(), nums.end());
@@ -41,8 +36,9 @@ vector<vector<int>> threeSum(vector<int> &nums) {
            
              
             vector<int> v = {nums[i], nums[leftBorder], nums[rightBorder]};
-            f[v]++;
-            if (f[v]==1) res.insert(res.end(), v);
+            //f[v]++;
+            //if (f[v]==1) 
+            res.insert(res.end(), v);
             leftBorder = upper_bound(nums.begin(), nums.end(), nums[leftBorder]) - nums.begin();
             rightBorder = prev(lower_bound(nums.begin(), nums.end(), nums[rightBorder])) - nums.begin();
         
