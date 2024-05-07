@@ -3,7 +3,7 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        map<int, vector<int>> f;
+        unordered_map<int, vector<int>> f;
         int level = nums.size() / 2;
         int result = -1;
 
