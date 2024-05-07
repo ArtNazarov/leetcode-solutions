@@ -18,7 +18,9 @@ vector<vector<int>> threeSum(vector<int> &nums) {
   
   for (size_t i = 0; i < nums.size()-2; i++) {
     if (nums[i]>0) break;
-    if (i>0 && nums[i]==nums[i-1]) continue;
+    if (i>0 && nums[i]==nums[i-1]) {
+        i = upper_bound(nums.begin(), nums.end(), nums[i]) - nums.begin();
+    };
     int leftBorder = i + 1;
     int rightBorder = nums.size()-1;
     while (leftBorder < rightBorder){
