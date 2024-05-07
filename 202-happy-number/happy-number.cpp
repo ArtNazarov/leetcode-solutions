@@ -2,7 +2,7 @@ class Solution {
 public:
 bool isHappy(int n) {
    bool flag = false; 
-   unordered_map<int, vector<int>> prev; // previous sums
+   unordered_map<int, int> prev; // previous sums
    while(!flag){
   
    if (1==n) {
@@ -26,9 +26,9 @@ bool isHappy(int n) {
       
    n = sum;
      
-     if (prev[n].size()==0){
+     if (prev[n]==0){
        // not found
-     prev[n].push_back(n);
+     prev[n]++;
      } else {
        // cycle!
        // cout << "Cycle with " << n << endl;
