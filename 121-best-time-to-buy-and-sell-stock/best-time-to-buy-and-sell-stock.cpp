@@ -9,7 +9,7 @@ public:
                 int p = 0;
                 for (int i=1;i<n;i++){
                         p = prices[i] - minValue;
-                        while (i + 1 < n && (prices[i+1]-minValue) == p) {
+                        while (i + 1 < n && ( prices[i+1] == prices[i] ) ){
                             i++;
                         };
                         
