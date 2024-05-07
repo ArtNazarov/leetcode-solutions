@@ -3,12 +3,12 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        map<int, vector<int>> f;
-        int level = nums.size() >> 1;
+        map<int, deque<int>> f;
+        int level = nums.size() / 2;
         int result = -1;
 
         for (const auto& e : nums){
-            f[e].push_back(e);
+            f[e].push_front(e);
             if (f[e].size()>level){
                 result = e;
                 break;
