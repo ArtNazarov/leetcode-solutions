@@ -32,7 +32,7 @@ public:
             };
 
             while (!traversal.empty()) {
-                res.insert( res.end(), traversal.top()->val );
+                res.push_back( traversal.top()->val );
                 traversal.pop();
             };
                 return res;
