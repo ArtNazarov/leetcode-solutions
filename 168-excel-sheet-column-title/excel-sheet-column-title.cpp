@@ -6,7 +6,7 @@ string convertToTitle(int columnNumber) {
   while (columnNumber > 0) {
     columnNumber -= 1;
     int dig = columnNumber % count;
-    s.insert(0, 1, char(int('A') + dig) );
+    s = char(int('A') + dig) + s;
     columnNumber /= count;
   }
   return s;
