@@ -10,15 +10,16 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-       unordered_set<ListNode*> nodesInA;
+      map<ListNode*, int> nodesInA;
            ListNode* p = headA;
            while (p!=nullptr){
-               nodesInA.insert(p);
+               nodesInA[p]++;
                p = p->next;
           };
           p = headB;
           while (p !=nullptr){
-              if (nodesInA.find(p)!=nodesInA.end()){
+              nodesInA[p]++;
+              if (nodesInA[p]>1){
                   return p;
             };
             p = p->next;
