@@ -4,10 +4,10 @@ class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         map<int, vector<int>> f;
-        int level = nums.size() / 2;
+        int level = nums.size() >> 1;
         int result = -1;
 
-        for ( auto e : nums){
+        for (const auto& e : nums){
             f[e].push_back(e);
             if (f[e].size()>level){
                 result = e;
