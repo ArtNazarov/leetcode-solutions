@@ -3,7 +3,7 @@ using namespace std;
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-                int n = prices.size();
+                
                 int profit = 0;
                 int minValue = *(prices.begin());
                 int p = 0;
