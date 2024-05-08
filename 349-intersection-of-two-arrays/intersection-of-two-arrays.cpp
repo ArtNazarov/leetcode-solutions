@@ -7,7 +7,7 @@ public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
          
      
-     set<int> st;
+     unordered_set<int> st;
        sort(nums2.begin(), nums2.end());
         nums2.erase(unique(nums2.begin(), nums2.end()), nums2.end());
 
