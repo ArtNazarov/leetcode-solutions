@@ -6,9 +6,7 @@ public:
        for (int i=0;i<middle;i++){
            int right = N-1-i;
            if (s[i]!=s[right]){
-            char temp = s[i];
-            s[i] = s[right];
-            s[right] = temp; 
+            swap(s[i], s[right]);
            }
        };
     }
