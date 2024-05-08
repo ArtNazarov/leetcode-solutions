@@ -6,8 +6,8 @@
 using namespace std;
 class Solution {
 public:
-    
-    void skip(vector<int>& source,  vector<int>::iterator& it, vector<int>& dest, int last_val){
+    template<typename T>
+    void skip(vector<T>& source,  typename vector<T>::iterator& it, vector<T>& dest, T last_val){
         while (it != source.end()) {
                         if (last_val != *it) break;
                         dest.push_back(last_val);
@@ -29,8 +29,8 @@ public:
                 last_val = *it1;
                 vector<int> d1;
                 vector<int> d2;
-                skip(nums1, it1, d1, last_val);
-                skip(nums2, it2, d2, last_val);
+                skip<int>(nums1, it1, d1, last_val);
+                skip<int>(nums2, it2, d2, last_val);
                 int sz = min(d1.size(), d2.size());
                 for(auto i = 0; i < sz ; i++) v.push_back(last_val);
                 d1.clear();
