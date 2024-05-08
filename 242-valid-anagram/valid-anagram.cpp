@@ -4,6 +4,7 @@ class Solution {
 public:
     bool isAnagram(string s, string t) {
         map<int, int> f;
+        if ( s.size()!=t.size() ) return false;
         for(auto ch : s) f[ch]++;
         for(auto ch : t) {
             f[ch]--;
