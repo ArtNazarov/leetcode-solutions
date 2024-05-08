@@ -9,20 +9,20 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
- #include <deque>
+ #include <stack>
  #include <set>
  using namespace std;
 class Solution {
 public:
     int sumOfLeftLeaves(TreeNode* root) {
         int sum = 0;
-         deque<TreeNode*> visited;
-         set<TreeNode*> leftNodes;
+         stack<TreeNode*> visited;
+         unordered_set<TreeNode*> leftNodes;
          if (root == nullptr) return 0;
-         visited.push_front(root);
+         visited.push(root);
          while (!visited.empty()){
-            TreeNode* current = visited.front();
-            visited.pop_front();
+            TreeNode* current = visited.top();
+            visited.pop();
             // process only left nodes
             if (leftNodes.find(current)!=leftNodes.end()){
                 // check no children
@@ -31,11 +31,11 @@ public:
             };
 
             if (current->left != nullptr) {
-                visited.push_front(current->left);
+                visited.push(current->left);
                 leftNodes.insert(current->left);
             };
             if (current->right != nullptr){
-                visited.push_front(current->right);
+                visited.push(current->right);
             };
 
          };
