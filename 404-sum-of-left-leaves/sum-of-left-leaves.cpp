@@ -17,14 +17,15 @@ public:
     int sumOfLeftLeaves(TreeNode* root) {
         int sum = 0;
          stack<TreeNode*> visited;
-         unordered_set<TreeNode*> leftNodes;
+         map<TreeNode*, int> leftNodes;
          if (root == nullptr) return 0;
          visited.push(root);
+         leftNodes[root] = 0;
          while (!visited.empty()){
             TreeNode* current = visited.top();
             visited.pop();
             // process only left nodes
-            if (leftNodes.find(current)!=leftNodes.end()){
+            if (leftNodes[current]==-1){
                 // check no children
                 if (current->left == nullptr && current->right == nullptr) 
                     sum+=current->val;
@@ -32,10 +33,11 @@ public:
 
             if (current->left != nullptr) {
                 visited.push(current->left);
-                leftNodes.insert(current->left);
+                leftNodes[current->left]=-1;
             };
             if (current->right != nullptr){
                 visited.push(current->right);
+                leftNodes[current->right]=+1;
             };
 
          };
