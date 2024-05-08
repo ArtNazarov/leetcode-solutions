@@ -7,10 +7,10 @@ using namespace std;
 class Solution {
 public:
     template<typename T>
-    void skip(vector<T>& source,  typename vector<T>::iterator& it, vector<T>& dest, T last_val){
+    void skip(vector<T>& source,  typename vector<T>::iterator& it, int& cnt, T last_val){
         while (it != source.end()) {
                         if (last_val != *it) break;
-                        dest.push_back(last_val);
+                        cnt++;
                         it = next(it);
                     };
     }
@@ -27,14 +27,12 @@ public:
         
             if (*it1 == *it2){
                 last_val = *it1;
-                vector<int> d1;
-                vector<int> d2;
+               int d1 = 0;
+               int d2 = 0;
                 skip<int>(nums1, it1, d1, last_val);
                 skip<int>(nums2, it2, d2, last_val);
-                int sz = min(d1.size(), d2.size());
+                int sz = min(d1, d2);
                 for(auto i = 0; i < sz ; i++) v.push_back(last_val);
-                d1.clear();
-                d2.clear();
                 if (it1 == nums1.end()) break;
                 if (it2 == nums2.end()) break; 
             } else  {
