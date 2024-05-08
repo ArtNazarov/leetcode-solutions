@@ -15,11 +15,11 @@ public:
         int rt = n;
         int x = 0;
         int r = 0;
-        int initial = (int) ceil(0.3 * (rand() % n));
+        int initial = lt + (rt - lt) / 2;
         int first_run = false;
         while (true) {
             if (first_run) {
-                x = lt + initial;
+                x = initial;
                 first_run = false;
             } else {
                 x = lt + (rt-lt)/2;
