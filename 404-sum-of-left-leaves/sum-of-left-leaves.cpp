@@ -17,7 +17,7 @@ public:
     int sumOfLeftLeaves(TreeNode* root) {
         int sum = 0;
          stack<TreeNode*> visited;
-         map<TreeNode*, int> leftNodes;
+         unordered_map<TreeNode*, int> leftNodes;
          if (root == nullptr) return 0;
          visited.push(root);
          leftNodes[root] = 0;
