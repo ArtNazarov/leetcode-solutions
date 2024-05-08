@@ -8,7 +8,14 @@ public:
         auto start = nums.begin();
         auto end = nums.end();
         for (int x = 0; x <= sz ; x++){
+             
             if (!binary_search(start, end, x)) return x;
+            
+            int r = rand() % (sz+1);
+           
+            if (!binary_search(start, end, r)) return r;
+            
+          
         };
         return 0;
     }
