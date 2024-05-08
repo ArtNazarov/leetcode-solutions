@@ -4,8 +4,8 @@ class Solution {
 public:
     bool isAnagram(string s, string t) {
         if (s.size()!=t.size()) return false;
-        ranges::sort(s.begin(), s.end());
-        ranges::sort(t.begin(), t.end());
-        return (s.compare(t)==0);
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        return (s == t);
     }
 };
