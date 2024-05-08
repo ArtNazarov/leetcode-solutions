@@ -15,17 +15,14 @@ public:
         int rt = n;
         int x = 0;
         int r = 0;
-        int initial = (int) ceil(0.6 * (rand() % n));
+        int initial = (int) ceil(0.3 * (rand() % n));
         int first_run = false;
         while (true) {
             if (first_run) {
                 x = lt + initial;
                 first_run = false;
             } else {
-                int shift = rt-lt;
-                if (shift != 0) shift = rand() % shift;
-                if (shift == 0) shift = (rt-lt) >> 1;
-                x = lt + shift;
+                x = lt + (rt-lt)/2;
             };
             r = guess(x);
             if (r == 0) return x;
