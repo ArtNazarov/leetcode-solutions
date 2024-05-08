@@ -3,8 +3,15 @@ using namespace std;
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        ranges::sort(s.begin(), s.end());
-        ranges::sort(t.begin(), t.end());
-        return (s.compare(t)==0);
+        map<int, int> f;
+        for(auto ch : s) f[ch]++;
+        for(auto ch : t) {
+            f[ch]--;
+            if (f[ch]<0) return false;
+        }
+        for(auto ch : s){
+            if (f[ch]>0) return false;
+        }
+        return true;
     }
 };
