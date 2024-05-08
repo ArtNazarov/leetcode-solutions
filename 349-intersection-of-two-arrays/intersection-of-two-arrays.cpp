@@ -5,30 +5,36 @@ using namespace std;
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-         
-     
-     unordered_set<int> st;
-       sort(nums2.begin(), nums2.end());
-        nums2.erase(unique(nums2.begin(), nums2.end()), nums2.end());
-
-       for (auto e : nums1){
-           if (binary_search(nums2.begin(), nums2.end(), e))  st.insert(e);
-       };
-
-       for (auto e : nums2){
-
-           if (st.find(e)==st.end()){
-               st.erase(e);
-        };
-       };
-
-
-
-      vector<int> res;
-      for (auto key : st){
-          res.push_back(key);
-    };
-      return res;
+       ranges::sort(nums1);
+       ranges::sort(nums2);
+        auto it1 = nums1.begin();
+        auto it2 = nums2.begin();
+        vector<int> v;
+        int last_val = INT_MIN;
+       do {
+        if (it1 == nums1.end()) break;
+        if (it2 == nums2.end()) break;
+        
+            if (*it1 == *it2){
+                if (last_val != *it1) v.push_back(*it1);
+                last_val = *it1;
+                it1 = next(it1);
+                it2 = next(it2);
+                if (it1 == nums1.end()) break;
+                if (it2 == nums2.end()) break; 
+            } else  {
+                    // cout << *it1 << " " << *it2 << endl;
+                    if (*it1 < *it2) { 
+                        it1 = next(it1);
+                        if (it1 == nums1.end()) break;
+                        } else if (*it1 > *it2){
+                        it2 = next(it2);
+                        if (it2 == nums2.end()) break; 
+                     };
+            };
+           
+        } while (it1 != nums1.end() && it2 != nums2.end());
+         return v;
 
     }
 };
