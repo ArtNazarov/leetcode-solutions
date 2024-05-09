@@ -23,6 +23,7 @@ public:
     int maxDepth(Node* root) {
         if (root==nullptr) return 0;
         if (root->children.empty()) return 1;
+        if (memo[root]) return d[root];
         deque<Node*> st;
         st.push_front(root);
         int mx = 0;
@@ -33,6 +34,10 @@ public:
                 mx = max(mx, maxDepth(x));
             };
         }
+        d[root] = 1 + mx;
+        memo[root] = true;
         return 1 + mx;
     }
+    map<Node*, int> d;
+    map<Node*, bool> memo;
 };
