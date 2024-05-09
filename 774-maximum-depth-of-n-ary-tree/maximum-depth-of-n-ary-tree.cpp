@@ -22,7 +22,7 @@ class Solution {
 public:
     int maxDepth(Node* root) {
         if (root==nullptr) return 0;
-        if (root->children.size()==0) return 1;
+        if (root->children.empty()) return 1;
         int mx = 0;
         for (auto x : root->children){
             mx = max(mx, maxDepth(x));
