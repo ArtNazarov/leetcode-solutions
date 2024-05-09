@@ -16,7 +16,8 @@ using namespace std;
 class Solution {
 public:
     vector<int> findMode(TreeNode* root) {
-        unordered_map<int, int> f;
+        // traverse using iteration
+        map<int, int> f;
         vector<int> res;
         if (root==nullptr) return res;
         stack<TreeNode*> visited;
