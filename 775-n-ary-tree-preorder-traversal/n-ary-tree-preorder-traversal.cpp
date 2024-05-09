@@ -24,20 +24,14 @@ public:
     vector<int> preorder(Node* root) {
         // Traverse without stack
         vector<int> res;
-        if (root == nullptr) return res;
-        if (root->children.empty()){
-            // cout << "Empty tree or subtree with val  " << root->val << endl;
-            res.push_back(root->val);
-            return res;
-        };
-        res.push_back(root->val);
-        for (auto e : root->children){
-          
-            for (auto q : preorder(e)){
-                res.push_back(q);
-            };
-        };
-
+        if (root != nullptr) recurs(root, res);
         return res; 
     }
+
+    void recurs(Node* node, vector<int>& res) {
+        res.push_back(node->val);
+        for (Node* child : node->children)
+            recurs(child, res);
+    }
+
 };
