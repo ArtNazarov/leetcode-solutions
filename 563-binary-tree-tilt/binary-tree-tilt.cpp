@@ -29,6 +29,8 @@ public:
       else {
         tLeft = t[root->left];
         tRight = t[root->right];
+        m[root->left] = true;
+        m[root->right] = true;
       }
       // sum of tilts should include root->val
       int sum = tLeft + tRight + root->val;
