@@ -23,15 +23,20 @@ public:
     
     vector<int> preorder(Node* root) {
         // Traverse without stack
+        queue<int> q;
         vector<int> res;
-        if (root != nullptr) recurs(root, res);
+        if (root != nullptr) recurs(root, q);
+        while (!q.empty()){
+            res.push_back(q.front());
+            q.pop();
+        }
         return res; 
     }
 
-    void recurs(Node* node, vector<int>& res) {
-        res.insert(res.end(), node->val);
+    void recurs(Node* node, queue<int>& q) {
+        q.push(node->val);
         for (Node* child : node->children)
-            recurs(child, res);
+            recurs(child, q);
     }
 
 };
