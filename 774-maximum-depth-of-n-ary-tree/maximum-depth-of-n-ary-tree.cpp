@@ -23,10 +23,16 @@ public:
     int maxDepth(Node* root) {
         if (root==nullptr) return 0;
         if (root->children.empty()) return 1;
+        stack<Node*> st;
+        st.push(root);
         int mx = 0;
-        for (auto x : root->children){
-            mx = max(mx, maxDepth(x));
-        };
+        while (!st.empty()){
+            Node* current = st.top();
+            st.pop();
+            for (auto x : current->children){
+                mx = max(mx, maxDepth(x));
+            };
+        }
         return 1 + mx;
     }
 };
