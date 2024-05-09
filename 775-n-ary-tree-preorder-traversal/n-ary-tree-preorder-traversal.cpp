@@ -25,9 +25,9 @@ public:
         
         deque<int> q;
         vector<int> res;
-        if (root != nullptr) recurs(root, q);
+        if (root) recurs(root, q);
         while (!q.empty()){
-            res.insert(res.end(), q.front());
+            res.push_back (q.front());
             q.pop_front();
         }
         return res; 
