@@ -29,7 +29,7 @@ public:
     }
 
     void recurs(Node* node, vector<int>& res) {
-        res.push_back(node->val);
+        res.insert(res.end(), node->val);
         for (Node* child : node->children)
             recurs(child, res);
     }
