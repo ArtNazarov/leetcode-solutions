@@ -25,15 +25,15 @@ public:
         // Traverse without stack
         vector<int> res;
         if (root == nullptr) return res;
-        if (root->children.size() == 0){
+        if (root->children.empty()){
             // cout << "Empty tree or subtree with val  " << root->val << endl;
             res.push_back(root->val);
             return res;
         };
         res.push_back(root->val);
         for (auto e : root->children){
-            vector<int> v = preorder(e);
-            for (auto q : v){
+          
+            for (auto q : preorder(e)){
                 res.push_back(q);
             };
         };
