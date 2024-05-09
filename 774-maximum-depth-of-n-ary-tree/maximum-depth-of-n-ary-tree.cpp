@@ -17,7 +17,7 @@ public:
     }
 };
 */
-// Recursive solution
+// Iteration using stack
 class Solution {
 public:
     int maxDepth(Node* root) {
