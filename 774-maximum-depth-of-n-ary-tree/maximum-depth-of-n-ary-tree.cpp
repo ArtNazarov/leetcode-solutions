@@ -17,18 +17,18 @@ public:
     }
 };
 */
-// Iteration using stack
+// Iteration using deque
 class Solution {
 public:
     int maxDepth(Node* root) {
         if (root==nullptr) return 0;
         if (root->children.empty()) return 1;
-        stack<Node*> st;
-        st.push(root);
+        deque<Node*> st;
+        st.push_front(root);
         int mx = 0;
         while (!st.empty()){
-            Node* current = st.top();
-            st.pop();
+            Node* current = st.front();
+            st.pop_front();
             for (auto x : current->children){
                 mx = max(mx, maxDepth(x));
             };
