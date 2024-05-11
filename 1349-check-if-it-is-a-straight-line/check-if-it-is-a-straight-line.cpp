@@ -1,5 +1,4 @@
-// Solution with double precision
-
+// Solution with single precision
 class Solution {
 public:
     bool checkStraightLine(vector<vector<int>>& coordinates) {
