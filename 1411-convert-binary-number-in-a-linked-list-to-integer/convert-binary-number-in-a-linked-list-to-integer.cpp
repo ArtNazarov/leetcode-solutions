@@ -8,24 +8,23 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
-// Solution using stack
-#include <stack>
+// Using deque
+#include <deque>
 using namespace std;
 class Solution {
 public:
     int getDecimalValue(ListNode* head) {
        if (head == nullptr) return 0;
-       stack<ListNode*> visited;
-       visited.push(head);
+       deque<ListNode*> visited;
+       visited.push_front(head);
        int res = 0;
        ListNode* current;
        while (!visited.empty()){
-            current = visited.top();
-            visited.pop();
+            current = visited.front();
+            visited.pop_front();
             int digit = current->val;
             res = res * 2 + digit;
-            if (current->next !=nullptr) visited.push(current->next);
+            if (current->next !=nullptr) visited.push_front(current->next);
        };
        return res;
     }
