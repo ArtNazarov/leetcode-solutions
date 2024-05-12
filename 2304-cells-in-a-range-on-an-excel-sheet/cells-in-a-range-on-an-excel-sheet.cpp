@@ -7,10 +7,11 @@ public:
         char col2 = s[3];
         char row1 = s[1];
         char row2 = s[4];
+        string x;
         vector<string> v;
         for(auto col=col1;col<=col2;col++){
             for(auto row=row1;row<=row2;row++){
-                string x = "";
+                x = "";
                 x += col;
                 x += row;
                 v.push_back(x);
