@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <ranges>
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -17,7 +18,7 @@ public:
         auto top = head;
         vector<ListNode*> v;
         while (p!=nullptr) {v.push_back(p); p=p->next;};
-        reverse(v.begin(), v.end());
+        ranges::reverse(v);
         //cout << "Vertex count " << v.size() << endl;
         int index = n - 1;
         //cout << "try to remove index " << index << endl;
